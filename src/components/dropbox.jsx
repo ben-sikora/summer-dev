@@ -4,7 +4,7 @@ function Dropbox() {
       <div className ="w-[100%] flex flex-row justify-center">
         <form>
             <label>
-                <input className="w-[688px] h-[224px]" type ="text" name = "inputText" placeholder = "Paste your text here..."/>
+                <textarea className="w-[688px] h-[224px] placeholder:align-top resize-none" type ="text" name = "inputText" placeholder = "Paste your text here..."/>
             </label>
         </form>
       </div>
