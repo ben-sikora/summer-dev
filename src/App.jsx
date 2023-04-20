@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Nav from './components/Nav'
+import Dropbox from './components/Dropbox'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className='w-100% h-[100vh] bg-purple'>
       <Nav />
+      <Dropbox />
     </div>
   )
 }
