@@ -4,7 +4,7 @@ function Nav() {
     return (
       <div className="flex flex-row w-100% h-[40vh] pt-3 justify-between border-box">
         <img src={logo} className='max-w-[8vh] max-h-[8vh] mr-3 mt-3'/>
-        <div className='self-center'>
+        <div className='self-center ml-[125px]'>
         <h1 className='font-title font-bold text-[64px] text-grey'>
             Welcome to Summer
         </h1>
