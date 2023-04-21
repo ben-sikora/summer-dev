@@ -5,8 +5,18 @@ function Dropbox() {
 
 
   const onSubmit= () =>{
-    console.log(text);
-    return false;
+    const url="https://523e0135-ec2c-4a77-b772-aaf375e95c18.mock.pstmn.io/text"; 
+    fetch( url,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(text)
+    }
+    ).then(res =>res.json())
+    .then(data => {
+      console.log(data)
+    }).catch(console.log); 
   }
   
     return (
