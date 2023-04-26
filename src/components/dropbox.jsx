@@ -80,7 +80,7 @@ function Dropbox() {
       <div className ="w-[100%] flex justify-center">
         <form className="" action='#0'>
             <label>
-                <textarea className="w-[688px] h-[224px] placeholder:align-top resize-none rounded-md pl-1 pr-1" type ="text" name = "inputText" placeholder = "Paste your text here..." onChange={(event)=>setText(event.target.value)}/>
+                <textarea className="lg:w-[688px] md:w-[488px] w-[388px] h-[224px] placeholder:align-top resize-none rounded-md pl-1 pr-1" type ="text" name = "inputText" placeholder = "Paste your text here..." onChange={(event)=>setText(event.target.value)}/>
             </label>
             <input className="block text-grey p-[2px]" type="file" name="file"
             onChange={(event)=> {
