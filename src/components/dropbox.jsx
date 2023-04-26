@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoadingIcon from './LoadingIcon.jsx';
+import Summary from './summary.jsx'
 
 function Dropbox() {
   const [text, setText] = useState("");
@@ -27,7 +28,7 @@ function Dropbox() {
       }
       ).then(res =>res.json())
       .then(data => {
-        console.log(data.response)
+        setSummary(data.response)
         setSummaryStat('arrived') 
       }).catch(err => console.log(err));
     } else{
@@ -71,7 +72,7 @@ function Dropbox() {
             {
               'dorm': <div />,
               'loading': <LoadingIcon />,
-              'arrived': <p>{summary}</p>
+              'arrived': <Summary summaryText={summary} />
             }[summaryStat]
           }
        </div>
