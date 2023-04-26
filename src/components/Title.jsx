@@ -4,7 +4,7 @@ function Title(){
 
     return(
         <div>
-        <h1 className="font-title font-bold text-[64px] mt-10 text-grey">
+        <h1 className="font-title font-bold lg:text-[64px] md:text-[48px] text-[32px] mt-10 text-grey">
               Welcome to Summer
             </h1>
             <div className=''>
