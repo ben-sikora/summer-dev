@@ -32,17 +32,47 @@ function Dropbox() {
         setSummaryStat('arrived') 
       }).catch(err => console.log(err));
     } else{
+      const reader = new FileReader();
+      reader.readAsText(selectedFile)
+
+      reader.onload = () =>{
+        fetch( url, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            input: reader.result
+          })
+        }).then(res =>res.json())
+        .then(data => {
+          setSummary(data.response)
+          setSummaryStat('arrived') 
+        }).catch(err => console.log(err))
+
+      } 
+
+      reader.onerror = function() {
+        console.log(reader.error);
+      };
+      
+    
+
+      /*
       const formData = new FormData()
-      formData.append('File', selectedFile)
+      formData.append('file', selectedFile)
       fetch( url,{
         method: "POST",
+        headers:{
+
+        },
         body: formData
       }
       ).then(res =>res.json())
       .then(data => {
-        console.log(data[0])
-        setSummary(data[0])
-      }).catch(console.log()); 
+        setSummary(data.response)
+        setSummaryStat('arrived') 
+      }).catch(console.log()); */
     }
   }
   
