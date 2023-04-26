@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoadingIcon from './LoadingIcon.jsx';
+import Summary from './summary.jsx'
 
 function Dropbox() {
   const [text, setText] = useState("");
@@ -11,26 +12,24 @@ function Dropbox() {
   const spinner= '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>';
 
   const onSubmit= () =>{
-    const url="http://localhost:3000/text"; 
+    const url="http://localhost:3000/upload-text"; 
     setSummaryStat('loading')
 
     if(!isFilePicked){
-      console.log("WHAT UP")
-      console.log(text)
-      fetch( url,{
+      fetch( url, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          text:text
+          input: text
         })
       }
-      ).then(res =>res.text())
+      ).then(res =>res.json())
       .then(data => {
-        console.log(data)
+        setSummary(data.response)
         setSummaryStat('arrived') 
-      }).catch(err => console.log('BAD'));
+      }).catch(err => console.log(err));
     } else{
       const formData = new FormData()
       formData.append('File', selectedFile)
@@ -72,7 +71,7 @@ function Dropbox() {
             {
               'dorm': <div />,
               'loading': <LoadingIcon />,
-              'arrived': <p>{summary}</p>
+              'arrived': <Summary summaryText={summary} />
             }[summaryStat]
           }
        </div>
