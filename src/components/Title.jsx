@@ -8,7 +8,7 @@ function Title(){
               Welcome to Summer
             </h1>
             <div className=''>
-            <h2 className="font-title font-bold lg:text-[40px] md:text-[32px] text-[24px] mt-[-20px] text-grey">
+            <h2 className="font-title font-bold lg:text-[40px] md:text-[32px] text-[24px] mt-[-20px] text-grey flex flex-row">
               Summarize your...&nbsp;
               <Typewriter
               options={{
