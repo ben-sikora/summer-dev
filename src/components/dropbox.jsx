@@ -11,23 +11,25 @@ function Dropbox() {
   const spinner= '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>';
 
   const onSubmit= () =>{
-    const url="http://localhost:3000/text"; 
+    const url="http://localhost:3000/upload-text"; 
     setSummaryStat('loading')
     
 
     if(!isFilePicked){
-      console.log("WHAT UP")
-      fetch( url,{
+      fetch( url, {
         method: "POST",
         headers: {
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(text)
+        body: JSON.stringify({
+          input: text
+        })
       }
-      ).then(res =>res.text())
+      ).then(res =>res.json())
       .then(data => {
-        console.log(data)
+        console.log(data.response)
         setSummaryStat('arrived') 
-      }).catch(err => console.log('BAD'));
+      }).catch(err => console.log(err));
     } else{
       const formData = new FormData()
       formData.append('File', selectedFile)
