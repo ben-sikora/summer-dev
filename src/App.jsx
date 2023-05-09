@@ -12,9 +12,9 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="w-[100%] h-[100vh] bg-purple grid grid-cols-1 grid-rows-1 overflow-clip">
-      <div className="row-start-1 row-end-2 col-start-1 col-end-2 z-20">
-        <div className="w-[100%] flex flex-row">
+    <div className="w-[100%] h-[150vh] bg-purple grid grid-cols-1 grid-rows-1 overflow-clip">
+      <div className="row-start-1 row-end-2 col-start-1 col-end-2 z-20 w-[100%]">
+        <div className="w-[100%] h-[150vh] flex flex-row">
           <Logo />
           <div className="flex-grow flex flex-col items-center">
             <Title />
