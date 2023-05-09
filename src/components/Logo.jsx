@@ -3,7 +3,9 @@ import logo from "../assets/Vector.png";
 function Logo(){
 
     return(
-        <img src={logo} className="max-w-[8vh] max-h-[8vh] ml-3 mr-3 mt-3" />
+        <div className='box-border'>
+            <img src={logo} className="max-w-[6vh] max-h-[6vh] md:max-w-[8vh] md:max-h-[8vh] mt-[10px] ml-[10px]" />
+        </div>
     )
 
 }
