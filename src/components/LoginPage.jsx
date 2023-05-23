@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import validator from "validator";
 import DOMPurify from "dompurify";
 
-function LoginPage({ setUser, onFormSwitch }) {
+function LoginPage({ setAuthenticated, onFormSwitch }) {
 	const [email, getEmail] = useState("");
 	const [password, getPass] = useState("");
-	const [authenticated, setauthenticated] = useState("");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -31,7 +30,7 @@ function LoginPage({ setUser, onFormSwitch }) {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setUser(data.authenticated);
+				setAuthenticated(data.authenticated);
 			})
 			.catch((err) => console.log(err));
 		//.then(responseData=>{setauthenticated(responseData.authenticated);}).catch(err => console.log(err))

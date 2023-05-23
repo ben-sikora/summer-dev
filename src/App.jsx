@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Nav from "./components/Nav";
 import Dropbox from "./components/dropbox";
@@ -9,10 +9,17 @@ import WhiteGrad from "./components/WhiteGrad";
 import SunGrad from "./components/SunGrad";
 import LoginPage from "./components/LoginPage";
 import Register from "./components/Register";
+import UserIcon from "./components/userIcon";
 
 function App() {
-	const [userAuthenticated, setUserAuthenticated] = useState(false);
+	const [authenticated, setAuthenticated] = useState(
+		localStorage.getItem("authenticated") === "true"
+	);
 	const [currentForm, setCurrentForm] = useState("LoginPage");
+
+	useEffect(() => {
+		localStorage.setItem("authenticated", authenticated);
+	}, [authenticated]);
 
 	const toggleForm = (formName) => {
 		setCurrentForm(formName);
@@ -22,7 +29,7 @@ function App() {
 		if (currentForm === "LoginPage") {
 			return (
 				<LoginPage
-					setUser={setUserAuthenticated}
+					setAuthenticated={setAuthenticated}
 					onFormSwitch={toggleForm}
 					{...props}
 				/>
@@ -41,7 +48,9 @@ function App() {
 						<div className="flex-grow flex flex-col items-center">
 							<Title />
 							<Routes>
-								{!userAuthenticated ? (
+								{authenticated ? (
+									<Route path="/" element={<Dropbox />} />
+								) : (
 									<>
 										<Route
 											path="/"
@@ -61,8 +70,6 @@ function App() {
 											element={<Navigate to="/LoginPage" replace />}
 										/>
 									</>
-								) : (
-									<Route path="/" element={<Dropbox />} />
 								)}
 								<Route
 									path="/LoginPage"
@@ -70,13 +77,13 @@ function App() {
 										<LoginFormWrapper
 											currentForm={currentForm}
 											toggleForm={toggleForm}
-											setUser={setUserAuthenticated}
+											setAuthenticated={setAuthenticated}
 										/>
 									}
 								/>
 							</Routes>
 						</div>
-						<Login />
+						<UserIcon onLogout={() => setAuthenticated(false)} />
 					</div>
 				</div>
 				<WhiteGrad />
