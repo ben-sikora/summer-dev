@@ -9,7 +9,7 @@ import WhiteGrad from "./components/WhiteGrad";
 import SunGrad from "./components/SunGrad";
 import LoginPage from "./components/LoginPage";
 import Register from "./components/Register";
-import UserIcon from "./components/userIcon";
+import UserIcon from "./components/UserIcon";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(
