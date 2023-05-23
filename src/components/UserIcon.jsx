@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import userImage from "../assets/user-3296.png";
 
 const UserIcon = ({ onLogout }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ const UserIcon = ({ onLogout }) => {
 		<div className="relative inline-block mr-4 mt-2" ref={dropdownRef}>
 			{/* User icon imported from the "assets" library */}
 			<img
-				src="src/assets/user-3296.png"
+				src={userImage}
 				alt="User Icon"
 				width="50"
 				height="50"
@@ -50,7 +51,11 @@ const UserIcon = ({ onLogout }) => {
 					<a href="" className="block py-2 px-4 hover:bg-gray-100 rounded-md">
 						Profile
 					</a>
-					<a href="" className="block py-2 px-4 hover:bg-gray-100 rounded-md" onClick={handleLogoutClick}>
+					<a
+						href=""
+						className="block py-2 px-4 hover:bg-gray-100 rounded-md"
+						onClick={handleLogoutClick}
+					>
 						Log Out
 					</a>
 				</div>
