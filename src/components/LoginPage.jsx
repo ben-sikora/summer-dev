@@ -18,7 +18,7 @@ function LoginPage({ setAuthenticated, onFormSwitch }) {
 		const sanitizedEmail = DOMPurify.sanitize(email);
 		const sanitizedPassword = DOMPurify.sanitize(password);
 
-		fetch("http://localhost:3000/loginPage", {
+		fetch("https://54.183.255.16/loginPage", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
