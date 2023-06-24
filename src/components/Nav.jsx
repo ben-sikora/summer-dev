@@ -12,10 +12,9 @@ function Nav() {
             Summarize your documents...
         </h2>
         </div>
-        {/* 
         <div className='box-border'>
             <button className='bg-orange text-grey h-[50px] w-[160px] rounded-xl text-[32px] mr-6'> Login</button>
-        </div>*/}
+        </div>
         
       </div>
     )
