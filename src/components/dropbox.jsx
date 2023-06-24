@@ -12,7 +12,7 @@ function Dropbox() {
   const spinner= '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>';
 
   const onSubmit= () =>{
-    const url="https://54.183.255.16/upload-text"; 
+    const url="https://api-k4qp3cjfza-uc.a.run.app/upload-text"; 
     setSummaryStat('loading')
 
     if(!isFilePicked){
